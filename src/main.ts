@@ -11,5 +11,3 @@ if (environment.production) {
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.log(err));
 
-  // 测试远程提交git
-  // 测试远程提交git222
