@@ -1,0 +1,12 @@
+<div>
+  <tr>
+    <td class="td_first" width="80" align="center" onclick="chgMenu();">
+      <strong>期号</strong>
+      <img src="../../../assets/info/tubiao/dot_paixu2.gif" border="0" align="absmiddle">&nbsp;
+      <img src="../../../assets/info/tubiao/paixu.gif" border="0" align="top" />
+    </td>
+    <td *ngFor="let item of thdata.reddata" class="wdh">{{item.value}}</td>
+    <td width="2" align="center" bgcolor="#CCCCCC" class="title_red"></td>
+    <td *ngFor="let item of thdata.bluedata" class="wdh">{{item.value}}</td>
+  </tr>
+</div>

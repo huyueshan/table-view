@@ -1,0 +1,95 @@
+<div fxLayout="column nowrap" fxLayoutAlign=" start center" fxLayoutGap="10px" class="container">
+  <div>
+    <div id="layout">
+
+
+      <!-- <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <span class="cfont1">红蓝走势</span> |
+            <a href="javascript:;">红球三分区走势</a> |
+            <a href="javascript:;">红球四分区走势</a> |
+            <a href="javascript:;">红球七分区走势</a>
+          </td>
+
+          <td align="right" id="qihao">
+            <a href="javascript:;" id="lately30" style="color:#FF0000;">最近30期</a>
+            <a href="javascript:;" style="" id="lately50">最近50期</a>
+            <a href="javascript:;" style="" id="lately100">最近100期</a>
+            <input name="from" id="from" value="18023" size="10" /> 期 至
+            <input name="to" id="to" value="18052" size="10" /> 期
+            <a href="#" onclick="check();">
+              <img src="../../../assets/info/tubiao/cx01.gif" align="absmiddle" border="0" />
+            </a>
+          </td>
+        </tr>
+      </table> -->
+      <div class="chart">
+        <table width="100%" border="0" cellpadding="0" cellspacing="1" class="zs_table" id="chartsTable">
+          <tr>
+            <td colspan="51" align="center">标注形式选择：
+              <input type="checkbox" name="checkbox2" value="checkbox" id="c_yl" [(ngModel)]="view_paramet.isomissionshow" /> 不带遗漏数据
+              <input type="checkbox" name="checkbox" value="checkbox" id="c_v" [(ngModel)]="view_paramet.isdouble" /> 重号
+              <input type="checkbox" name="checkbox" value="checkbox" id="c_h" [(ngModel)]="view_paramet.iscontin" /> 连号
+              <!-- <input type="checkbox" name="checkbox" value="checkbox" id="c_x" /> 边号 -->
+              <input type="checkbox" name="checkbox" value="checkbox" id="yl_zhu" [(ngModel)]="view_paramet.isomission"/> 遗漏分层
+              <input type="checkbox" name="checkbox3" value="checkbox" id="help_line" [(ngModel)]="view_paramet.issubline" /> 辅助线
+              <input type="checkbox" id="freeLine" [(ngModel)]="isshowline" />自由连线
+              <select id="userLineColor" [(ngModel)]="linecolor">
+                <option value="#FF0000" selected="selected" style="color:#FF0000">红色</option>
+                <option value="#009900" style="color:#009900">绿色</option>
+                <option value="#0033FF" style="color:#0033FF">蓝色</option>
+                <option value="#FF00FF" style="color:#FF00FF">紫色</option>
+                <option value="#999999" style="color:#000000">灰色</option>
+                <option value="#FFCC00" style="color:#FFCC00">橙色</option>
+              </select>
+            </td>
+          </tr>
+          <!-- <app-cellgroup></app-cellgroup> -->
+
+          <tr class="thead">
+            <td class="td_first" width="80" align="center" (click)="chgMenu()">
+              <strong>期号</strong>
+              <img src="../../../assets/dot_paixu2.gif" border="0" align="absmiddle">&nbsp;
+              <img src="../../../assets/paixu.gif" border="0" align="top" />
+            </td>
+            <td *ngFor="let item of thdata.reddata" class="wdh">{{item.value}}</td>
+            <td width="2" align="center" bgcolor="#CCCCCC" class="title_red"></td>
+            <td *ngFor="let item of thdata.bluedata" class="wdh">{{item.value}}</td>
+          </tr>
+
+          <tbody id="tdata">
+            <tr *ngFor="let item of maindata" [ngClass]="{'trborder': view_paramet.issubline}">
+              <td align="center" class="td_bg1">{{item.number}}</td>
+              <td class="yl01" *ngFor="let item of item.reddata" [ngClass]="{
+                'bgred':item.ischecked,
+                'omissionbg':item.isomission && view_paramet.isomission
+              }">
+                <span
+                class="span"
+                [ngClass]="{
+                'continbg':item.iscontin && view_paramet.iscontin,
+                'doublebg':item.isdouble && view_paramet.isdouble,
+                'omissionbg':item.isomission && view_paramet.isomission
+              }" *ngIf="!view_paramet.isomissionshow || item.ischecked">{{item.value}}</span>
+              </td>
+              <td bgcolor="#333" class="line"></td>
+              <td class="yl02" *ngFor="let item of item.bluedata" [ngClass]="{'bgblue':item.ischecked,
+              'omissionbg':item.isomission && view_paramet.isomission
+            }">
+                <span class="span" *ngIf="!view_paramet.isomissionshow || item.ischecked">{{item.value}}</span>
+              </td>
+            </tr>
+          </tbody>
+
+          <div *ngFor="let item of canvasdata; let index = index" class="canwrap" id="{{item.wrapid}}">
+            <canvas id="{{item.id}}" width="{{item.width}}" height="{{item.height}}" *ngIf="isshowline"></canvas>
+          </div>
+
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+

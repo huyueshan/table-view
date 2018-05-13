@@ -1,0 +1,98 @@
+.container {
+  width: 1000px;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+.wdh {
+  width: 18px;
+
+}
+
+ .thbg01 td {
+  height: 20px;
+}
+
+.thead{
+  background-color: aquamarine;
+}
+.zs_table{
+  border-collapse:collapse;
+}
+.zs_table tr td{
+  background-color: rgba(168, 153, 139, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  height: 18px;
+}
+.zs_table tr td.td_bg1{
+  background-color: rgb(216, 210, 210);
+  color: midnightblue;
+}
+
+.zs_table tr td.line{
+  width: 2px;
+  background-color: rgb(122, 122, 122);
+}
+
+
+#chartsTable{
+  display:table;
+}
+.zs_table tr:hover td,
+.zs_table tr:hover td.omissionbg,
+.zs_table td.hover {
+  background-color: rgba(0,122,204,.5);
+}
+
+.td_first{
+  cursor: pointer;
+}
+
+.zs_table #tdata tr:nth-child(4n).trborder{
+  border-bottom: 2px solid rgba(46, 45, 45, 0.5);
+}
+
+.zs_table #tdata tr:nth-child(4n){
+  border-bottom: 2px solid rgba(46, 45, 45, 0);
+}
+.bgred .span, #tdata .bgblue .span{
+  display: block;
+  width: 17px;
+  height: 100%;
+  line-height: 14px;
+  margin: auto auto;
+  background-color: red;
+  color:white;
+  border: 1px solid #EEEBE8;
+  /* border: 1px solid #fff; */
+  border-radius: 50%;
+}
+.bgred .span.doublebg{
+  background-color: blueviolet;
+}
+
+.bgred .span.continbg{
+  background-color: rgb(4, 88, 42);
+}
+.zs_table tr td.omissionbg{
+  background-color: rgba(70, 108, 126,.3);
+}
+
+td{
+text-align: center;
+}
+#laout{
+  min-width: 1000px;;
+}
+#chartsTable{
+  position: relative;
+  width: 1000px;
+}
+.canwrap{
+  position: absolute;
+  z-index: -1;
+}
+
+
+
+
